@@ -32,3 +32,24 @@ class Solution(object):
         
         return dummy.next
         
+
+# Create an object of the Solution class
+solution = Solution()
+
+# Create two linked lists 
+# List 1: 2 -> 4 -> 3
+l1 = ListNode(2)
+l1.next = ListNode(4)
+l1.next.next = ListNode(3)
+# List 2: 5 -> 6 -> 4
+l2 = ListNode(5)
+l2.next = ListNode(6)
+l2.next.next = ListNode(4)
+
+# Call the addTwoNumbers method and store the result
+result = solution.addTwoNumbers(l1, l2)
+
+# Print the result
+while result:
+    print(result.val, end=" ")
+    result = result.next
