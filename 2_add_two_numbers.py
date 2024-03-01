@@ -29,6 +29,4 @@ class Solution(object):
             carry = sum // 10
             curr.next = ListNode(sum % 10)
             curr = curr.next
-        
         return dummy.next
-        

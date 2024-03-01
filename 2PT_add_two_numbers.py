@@ -29,9 +29,17 @@ class Solution(object):
             carry = sum // 10
             curr.next = ListNode(sum % 10)
             curr = curr.next
+
+            # Print statements
+            print("Sum:", sum)
+            print("Carry:", carry)
+            print("Current Node Value:", curr.val)
+            print("Current Node Next:", curr.next)
+            print("----------")
         
         return dummy.next
         
+
 
 # Create an object of the Solution class
 solution = Solution()
