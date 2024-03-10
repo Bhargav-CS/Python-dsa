@@ -1,6 +1,9 @@
-a = [1,2,3,4,5,6,7,8,9,10]
+s = "geEksforGEeks"
 
-for a[-1] in a:
-    print(a[-1])
+p = ""
 
-print(a)
+for i in s:
+    if i not in p:
+        p += i
+
+print(p)    
