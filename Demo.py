@@ -1,18 +1,14 @@
 class Solution:
-    def duplicates(self, arr, n):
-        seen = set()
-        duplicates = set()
-        for num in arr:
-            if num in seen:
-                duplicates.add(num)
-            else:
-                seen.add(num)
-        return sorted(list(duplicates)) or [-1]
+    #Function to check if two arrays are equal or not.
+    def check(self,A,B,N):
+        A = set(A)
+        B = set(B)
 
+        
+        
 
-# arr = [0,3,1,2]
-# n = 4
-arr = [2, 3, 1, 2, 3]
-n = 5
+N = 5
+A = [16, 1, 2, 14, 13, 17, 1]
+B = [14, 1, 16, 2, 13, 2, 17]
 sol = Solution()
-print(sol.duplicates(arr, n)) # 2 3
+print(sol.check(A,B,N))
