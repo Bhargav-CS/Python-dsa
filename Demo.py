@@ -1,39 +1,33 @@
-mat1 = [[1,5,6],
-        [8,10,11],
-         [15,16,18]]
-      
-mat2 = [[2,4,7],
-         [9,10,12],
-         [13,16,20]]
+pairs = 0
+mat2_dict = {}
 
-# mat1 = [[1,2],
-#         [3,4]]
-
-# mat2 = [[4,5],
-#         [6,7]]
 n = 3
 x = 21
-def countPairs(mat1, mat2, n, x):
-   count = 0
-   mat2_sorted = [sorted(row) for row in mat2]  # Sort each row of mat2
+mat1 = [[1,5,6],
+   [8,10,11],
+   [15,16,18]]
 
-   for i in range(n):
-      for j in range(n):
-         target = x - mat1[i][j]  # Calculate the target value
-         left = 0
-         right = n - 1
+mat2 = [[2,4,7],
+   [9,10,12],
+   [13,16,20]]
 
-         while left < n and right >= 0:
-            if mat2_sorted[left][right] == target:
-               count += 1
-               left += 1
-               right -= 1
-            elif mat2_sorted[left][right] < target:
-               left += 1
-            else:
-               right -= 1
+for i in range(n):
+   for j in range(n):
+      print(f"Processing mat2[{i}][{j}] = {mat2[i][j]}")
+      if mat2[i][j] in mat2_dict:
+         mat2_dict[mat2[i][j]] += 1
+      else:
+         mat2_dict[mat2[i][j]] = 1
 
-   return count
+print(f"mat2_dict: {mat2_dict}")
 
+for i in range(n):
+   for j in range(n):
+      target = x - mat1[i][j]
+      print(f"Processing mat1[{i}][{j}] = {mat1[i][j]}, target = {target}")
 
-print(countPairs(mat1, mat2, n, x)) # 4
+      if target in mat2_dict:
+         pairs += mat2_dict[target]
+         print(f"Found a pair: mat1[{i}][{j}] + mat2_dict[{target}]")
+
+print(f"pairs: {pairs}")
