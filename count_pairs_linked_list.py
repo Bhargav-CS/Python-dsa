@@ -13,12 +13,25 @@ class Solution:
         n2:  len of linkedList 1
         x:   given sum
         '''
+        count = 0
+        # Create a set to store the values of linkedList 2
+        values = set()
+        
+        # Traverse the second linked list and store the values in the set
+        curr2 = head2
+        while curr2:
+            values.add(curr2.data)
+            curr2 = curr2.next
+        
+        # Traverse the first linked list
+        curr1 = head1
+        while curr1:
+            # Check if the complement of current node's value exists in the set
+            complement = x - curr1.data
+            if complement in values:
+                count += 1
+            curr1 = curr1.next
 
-        pass
+        return count
 
-head1 = Node(1)
-head1.next = Node(2)
-head1.next.next = Node(3)
-head1.next.next.next = Node(4)
-head1.next.next.next.next = Node(5)
-sol = Solution()
+
