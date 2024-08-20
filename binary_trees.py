@@ -79,6 +79,53 @@ class BinaryTree:
             
         return traversal            
         
+        
+def buildTree(s):
+    #building a tree using a string
+    if len(s) == 0 or s[0] == 'N':
+        return None
+    
+    ip = list(map(str, s.split()))
+    
+    root = Node(int(ip[0]))
+    size = 0
+    q = deque()
+    
+    q.append(root)
+    size += 1
+    
+    i = 1
+    
+    while size > 0 and i < len(ip):
+        currNode = q[0]
+        q.popleft()
+        size -= 1
+        
+        currVal = ip[i]
+        
+        if currVal != 'N':
+            currNode.left = Node(int(currVal))
+            q.append(currNode.left)
+            size += 1
+            
+        i += 1
+        if i >= len(ip):
+            break
+        
+        currVal = ip[i]
+        
+        if currVal != 'N':
+            currNode.right = Node(int(currVal))
+            q.append(currNode.right)
+            size += 1
+            
+        i += 1
+        
+    return root
+
+
+    
+
 tree = BinaryTree(1)
 tree.root.left = Node(2)
 tree.root.right = Node(3)
