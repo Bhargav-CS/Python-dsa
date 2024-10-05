@@ -1,0 +1,40 @@
+class Solution:
+    def findMajority(self, nums):
+        n = len(nums)
+        ans = []
+        cnt1, cnt2 = 0, 0
+        el1, el2 = None, None
+        
+        # Boyer-Moore Voting Algorithm to find the candidates with more than n/3 votes
+        for num in nums:
+            if cnt1 == 0 and num != el2:
+                el1 = num
+                cnt1 = 1
+            elif cnt2 == 0 and num != el1:
+                el2 = num
+                cnt2 = 1
+            elif num == el1:
+                cnt1 += 1
+            elif num == el2:
+                cnt2 += 1
+            else:
+                cnt1 -= 1
+                cnt2 -= 1
+        
+        cnt1, cnt2 = 0, 0
+        
+        # Verifying if the candidates have more than n/3 votes
+        for num in nums:
+            if num == el1:
+                cnt1 += 1
+            if num == el2:
+                cnt2 += 1
+        
+        if cnt1 > n // 3:
+            ans.append(el1)
+        if cnt2 > n // 3:
+            ans.append(el2)
+        if not ans:
+            ans.append(-1)
+        
+        return ans
