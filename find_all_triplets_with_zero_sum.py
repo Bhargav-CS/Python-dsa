@@ -29,3 +29,5 @@ class Solution:
 arr = [0, -1, 2, -3, 1]
 sol = Solution()
 print(sol.findTriplets(arr))
+
+#Solving the problem again
