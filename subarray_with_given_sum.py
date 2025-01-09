@@ -13,3 +13,24 @@ class Solution:
                 sum_counts[cumulative_sum] = 1
                 
         return count
+    
+class Solution:
+    def subarraySum(self, arr, target):
+        ans = []
+        low = 0
+        high = 0
+        total = 0
+        while high < len(arr):
+            total += arr[high]
+            while total >target:
+                total -= arr[low]
+                low += 1
+            if total == target:
+                ans.append(low+1)
+                ans.append(high+1)
+                break
+            high+=1
+
+        if ans !=[]:
+            return ans
+        return [-1]
